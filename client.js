@@ -1189,7 +1189,9 @@ function createWhaleEngine(host, ctx) {
     const previous = currentStage
     currentStage = next
     whaleEl.className = 'dsh-whale is-' + next + (isFast ? ' is-fast' : '')
-    if (next !== 'idle' && next !== 'sleeping') lastActiveAt = now()
+    if (next === 'thinking' || next === 'writing' || next === 'tool' ||
+        next === 'waiting' || next === 'done' || next === 'error' ||
+        next === 'drag' || next === 'poke') lastActiveAt = now()
     if (next === 'done' && previous !== 'done') {
       spawnBurst('spark', 9)
       spawnBurst('bubble', 4)
@@ -1228,7 +1230,9 @@ function createWhaleEngine(host, ctx) {
     tempStage = name
     tempUntil = now() + ms
     setStage(name)
-    lastActiveAt = now()
+    if (name === 'done' || name === 'error' || name === 'poke' || name === 'waiting') {
+      lastActiveAt = now()
+    }
   }
 
   /* -------------------------------------------------------------- particles */
@@ -1723,10 +1727,18 @@ function createWhaleEngine(host, ctx) {
 
   /* ------------------------------------------------------------------ loop */
 
+  let lastStageEval = 0
+
   function frame(timestamp) {
     if (disposed) return
     rafId = requestAnimationFrame(frame)
     if (!visible) return
+    // Re-derive the stage even when the chat is silent, otherwise the whale
+    // gets stuck in "drowsy" and never reaches "sleeping".
+    if (now() - lastStageEval > 400) {
+      lastStageEval = now()
+      refreshStage()
+    }
     const dt = Math.min(0.05, Math.max(0.001, (timestamp - lastFrame) / 1000 || 0.016))
     lastFrame = timestamp
 
@@ -1944,6 +1956,8 @@ function createWhaleEngine(host, ctx) {
         y: pet.y,
         running: monitorState.running,
         pending: monitorState.pending,
+        idleMs: Math.round(now() - lastActiveAt),
+        temp: tempStage,
         todos: todos,
         obstacles: obstacles.length,
       }
