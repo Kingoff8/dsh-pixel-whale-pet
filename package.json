@@ -1,0 +1,34 @@
+{
+  "name": "dsh-pixel-whale-pet",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A pixel whale calf that swims through empty space in the chat, dodges text and the cursor, reacts to every working stage and task, spouts water, wears headphones and launches a firework when the turn completes.",
+  "icon": "icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

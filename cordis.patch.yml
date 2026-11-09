@@ -1,0 +1,6 @@
+# dsh-pixel-whale-pet bundle patch: inserts the whale-calf overlay row.
+# The row id doubles as the Client module id, so reusing another plugin's id
+# would replace its overlay cell instead of adding a new one.
+- insert:
+    - id: dsh-pixel-whale-pet
+      name: 'dsh-pixel-whale-pet'
