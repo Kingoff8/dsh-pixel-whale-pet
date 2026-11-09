@@ -298,17 +298,16 @@ const ART = {
 .dsh-whale.is-sleeping #dw-z2 { animation: dw-z-rise 3.4s linear 0.7s infinite; }
 /* no mouth while asleep, and one eye occasionally peeks open */
 .dsh-whale.is-sleeping #dw-mouth-smile { display: none; }
-.dsh-whale.is-sleeping #dw-sleep-eye-closed { animation: dw-peek-closed 6s steps(1, end) infinite; }
-.dsh-whale.is-sleeping #dw-sleep-eye-open { animation: dw-peek-open 6s steps(1, end) infinite; }
-@keyframes dw-peek-closed {
-  0%, 86% { opacity: 1; }
-  88%, 96% { opacity: 0; }
-  98%, 100% { opacity: 1; }
+/* one eye open, the other closed for 5s, then open for 5s */
+.dsh-whale.is-sleeping #dw-sleep-eye-closed { animation: dw-eye-cycle-closed 10s steps(1, end) infinite; }
+.dsh-whale.is-sleeping #dw-sleep-eye-open { animation: dw-eye-cycle-open 10s steps(1, end) infinite; }
+@keyframes dw-eye-cycle-closed {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
-@keyframes dw-peek-open {
-  0%, 86% { opacity: 0; }
-  88%, 96% { opacity: 1; }
-  98%, 100% { opacity: 0; }
+@keyframes dw-eye-cycle-open {
+  0%, 49% { opacity: 0; }
+  50%, 100% { opacity: 1; }
 }
 @keyframes dw-sleep {
   0%, 100% { transform: translate(0, 0); }
@@ -582,6 +581,7 @@ const ART = {
   .dsh-whale .dsh-whale-art #dw-glow { opacity: 0 !important; }
   .dsh-whale .dsh-whale-art #dw-face-up-blink, .dsh-whale .dsh-whale-art #dw-mouth-think-open { opacity: 0 !important; }
   .dsh-whale .dsh-whale-art #dw-mouth-think-line { opacity: 0 !important; }
+  .dsh-whale .dsh-whale-art #dw-sleep-eye-closed { opacity: 0 !important; }
 }`,
   svg: ` <svg class="dsh-whale-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" shape-rendering="auto" aria-hidden="true" focusable="false">
   <g id="dw-bob">
@@ -593,7 +593,7 @@ const ART = {
     <g id="dw-face-up" class="dw-alt dw-on-thinking"><rect x="24" y="66" width="2" height="4" fill="#142660"/><rect x="38" y="66" width="2" height="4" fill="#142660"/></g><g id="dw-face-up-blink" class="dw-alt dw-on-thinking"><rect x="22" y="68" width="4" height="2" fill="#142660"/><rect x="38" y="68" width="4" height="2" fill="#142660"/></g>
     <g id="dw-face-happy" class="dw-alt dw-on-done dw-on-music dw-on-splash dw-on-hop"><rect x="24" y="68" width="2" height="2" fill="#142660"/><rect x="26" y="70" width="2" height="2" fill="#142660"/><rect x="28" y="68" width="2" height="2" fill="#142660"/><rect x="36" y="68" width="2" height="2" fill="#142660"/><rect x="38" y="70" width="2" height="2" fill="#142660"/><rect x="40" y="68" width="2" height="2" fill="#142660"/></g>
     <g id="dw-face-sad" class="dw-alt dw-on-error"><rect x="24" y="68" width="4" height="4" fill="#142660"/><rect x="24" y="68" width="2" height="2" fill="#FFFFFF"/><rect x="38" y="68" width="4" height="4" fill="#142660"/><rect x="38" y="68" width="2" height="2" fill="#FFFFFF"/><rect x="22" y="64" width="4" height="2" fill="#142660"/><rect x="38" y="64" width="4" height="2" fill="#142660"/></g>
-    <g id="dw-face-sleep" class="dw-alt dw-on-sleeping"><rect x="24" y="70" width="2" height="2" fill="#142660"/><rect x="28" y="70" width="2" height="2" fill="#142660"/></g><g id="dw-sleep-eye-closed" class="dw-alt dw-on-sleeping"><rect x="36" y="70" width="2" height="2" fill="#142660"/><rect x="40" y="70" width="2" height="2" fill="#142660"/></g><g id="dw-sleep-eye-open" class="dw-alt dw-on-sleeping"><rect x="38" y="68" width="2" height="4" fill="#142660"/></g>
+    <g id="dw-face-sleep" class="dw-alt dw-on-sleeping"><rect x="24" y="68" width="2" height="4" fill="#142660"/></g><g id="dw-sleep-eye-closed" class="dw-alt dw-on-sleeping"><rect x="36" y="70" width="2" height="2" fill="#142660"/><rect x="40" y="70" width="2" height="2" fill="#142660"/></g><g id="dw-sleep-eye-open" class="dw-alt dw-on-sleeping"><rect x="38" y="68" width="2" height="4" fill="#142660"/></g>
     <g id="dw-face-odd" class="dw-alt dw-on-poke"><rect x="24" y="68" width="2" height="2" fill="#142660"/><rect x="26" y="70" width="2" height="2" fill="#142660"/><rect x="24" y="72" width="2" height="2" fill="#142660"/><rect x="40" y="68" width="2" height="2" fill="#142660"/><rect x="38" y="70" width="2" height="2" fill="#142660"/><rect x="40" y="72" width="2" height="2" fill="#142660"/></g>
     <g id="dw-face-focus" class="dw-alt dw-on-tool"><rect x="24" y="68" width="2" height="4" fill="#142660"/><rect x="38" y="68" width="2" height="4" fill="#142660"/><rect x="22" y="66" width="4" height="2" fill="#142660"/><rect x="38" y="66" width="4" height="2" fill="#142660"/></g>
     <g id="dw-face-drowsy" class="dw-alt dw-on-drowsy"><rect x="22" y="68" width="6" height="2" fill="#142660"/><rect x="36" y="68" width="6" height="2" fill="#142660"/><rect x="24" y="70" width="2" height="2" fill="#142660"/><rect x="38" y="70" width="2" height="2" fill="#142660"/></g>
