@@ -6,6 +6,14 @@
 
 ![Китёнок в чате](docs/preview-live.png)
 
+Ещё несколько моментов:
+
+| `writing` — печатает на ноутбуке | `splash` — фонтан из дыхала | `done` — салют |
+|---|---|---|
+| ![Печатает на ноутбуке](docs/preview-writing.png) | ![Фонтан](docs/preview-fountain.png) | ![Салют](docs/preview-firework.png) |
+| `drag` — ругается при перетаскивании | `thinking` — думает с облаком | `music` — «чиллит» в наушниках |
+| ![Drag](docs/preview-drag.png) | ![Thinking](docs/thinking-talk-check.png) | ![Music](docs/preview-music.png) |
+
 ## English (summary)
 
 A pixel whale calf for the DeepSeek Harness web UI. It swims through empty space in the chat, dodges message text and the cursor, follows every agent stage (thinking, streaming, tool calls, waiting, done, error, sleep) and todo progress, and occasionally misbehaves: spouts water, wears headphones or launches a colorful firework when a turn completes. Client-only browser plugin: nothing on the host side, no services or tools.
