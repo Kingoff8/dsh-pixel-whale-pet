@@ -553,7 +553,8 @@ function createWhaleEngine(host, ctx) {
   let tempStage = null
   let tempUntil = 0
   let lastActiveAt = now()
-  let lastMischiefAt = now() + rand(9000, 16000)
+  let lastMischiefAt = now()
+  let nextZAt = now() + rand(9000, 16000)
   let lastMusicAt = now() + rand(28000, 65000)
   let mischiefCount = 0
   let lastWallBump = 0
@@ -671,8 +672,8 @@ function createWhaleEngine(host, ctx) {
 
   function spawnZ() {
     if (disposed || reduced) return
-    for (let i = 0; i < 2; i++) {
-      spawnParticle('z', { dx: rand(8, 26), dy: rand(-38, -20), scale: rand(0.7, 1.1), delay: i * 260, life: 2100 })
+    for (let i = 0; i < 4; i++) {
+      spawnParticle(i % 2 ? 'z2' : 'z', { delay: i * 320, life: 2300 })
     }
   }
 
@@ -1220,6 +1221,11 @@ function createWhaleEngine(host, ctx) {
         spawnBurst('spark', 3)
         spawnParticle('ripple', { x: PET_SIZE * 0.5, y: PET_SIZE * 0.78, life: 1100 })
       }
+    }
+    // A sleepy whale keeps puffing a stream of grey Zs.
+    if (currentStage === 'sleeping' && now() > nextZAt) {
+      nextZAt = now() + rand(900, 1500)
+      spawnZ()
     }
     // Done/error/splash/poke are temporary; fall back to the derived stage.
     if (tempStage && now() >= tempUntil) {

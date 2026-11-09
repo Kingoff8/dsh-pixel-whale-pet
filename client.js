@@ -306,6 +306,7 @@ const ART = {
 .dsh-whale.is-sleeping #dw-tail-blades { animation: dw-tail-sleep 4s ease-in-out infinite; }
 .dsh-whale.is-sleeping #dw-z1 { animation: dw-z-rise 3.4s linear infinite; }
 .dsh-whale.is-sleeping #dw-z2 { animation: dw-z-rise 3.4s linear 0.7s infinite; }
+.dsh-whale.is-sleeping #dw-z3 { animation: dw-z-rise 3.8s linear 1.4s infinite; }
 /* no mouth while asleep, and one eye occasionally peeks open */
 .dsh-whale.is-sleeping #dw-mouth-smile { display: none; }
 /* one eye open, the other closed for 5s, then open for 5s */
@@ -501,10 +502,16 @@ const ART = {
   animation-name: dw-fx-spark; animation-duration: 0.9s;
 }
 .dsh-whale .dsh-whale-z {
-  background: #142660;
-  box-shadow: 2px 0 0 #142660, 4px 0 0 #142660, 2px 2px 0 #142660,
-    0 4px 0 #142660, 2px 4px 0 #142660, 4px 4px 0 #142660;
+  background: #A7B0CC;
+  box-shadow: 2px 0 0 #A7B0CC, 4px 0 0 #A7B0CC, 2px 2px 0 #A7B0CC,
+    0 4px 0 #A7B0CC, 2px 4px 0 #A7B0CC, 4px 4px 0 #A7B0CC;
   animation-name: dw-fx-z; animation-duration: 1.8s;
+}
+.dsh-whale .dsh-whale-z2 {
+  background: #5B6488;
+  box-shadow: 2px 0 0 #5B6488, 4px 0 0 #5B6488, 2px 2px 0 #5B6488,
+    0 4px 0 #5B6488, 2px 4px 0 #5B6488, 4px 4px 0 #5B6488;
+  animation-name: dw-fx-z; animation-duration: 2.1s;
 }
 .dsh-whale .dsh-whale-note {
   background: #9D7BFF;
@@ -636,7 +643,7 @@ const ART = {
     <g id="dw-chart" class="dw-only dw-on-tool"><rect x="-12" y="46" width="18" height="44" fill="#142660"/><rect x="-10" y="48" width="14" height="4" fill="#FF8A3D"/><rect x="-10" y="52" width="14" height="4" fill="#FF4D5E"/><rect x="-10" y="56" width="14" height="4" fill="#FF8A3D"/><rect x="-10" y="60" width="14" height="4" fill="#FF4D5E"/><rect x="-10" y="64" width="14" height="4" fill="#FF8A3D"/><rect x="-10" y="68" width="14" height="4" fill="#FF4D5E"/><rect x="-10" y="72" width="14" height="4" fill="#FF8A3D"/><rect x="-10" y="76" width="14" height="4" fill="#FF4D5E"/><rect x="-10" y="80" width="14" height="4" fill="#FF8A3D"/><rect x="-10" y="84" width="14" height="4" fill="#FF4D5E"/></g>
     <g id="dw-tool-sparks" class="dw-only dw-on-tool"><rect x="8" y="72" width="2" height="2" fill="#FFFFFF"/><rect x="6" y="72" width="2" height="2" fill="#FFFFFF"/><rect x="10" y="72" width="2" height="2" fill="#FFFFFF"/><rect x="8" y="70" width="2" height="2" fill="#FFFFFF"/><rect x="8" y="74" width="2" height="2" fill="#FFFFFF"/><rect x="4" y="68" width="2" height="2" fill="#FFFFFF"/><rect x="14" y="76" width="2" height="2" fill="#FFFFFF"/><rect x="6" y="66" width="2" height="2" fill="#FF8A3D"/><rect x="12" y="68" width="2" height="2" fill="#FF8A3D"/><rect x="4" y="74" width="2" height="2" fill="#FF8A3D"/><rect x="14" y="72" width="2" height="2" fill="#FF8A3D"/><rect x="10" y="80" width="2" height="2" fill="#FF8A3D"/><rect x="6" y="78" width="2" height="2" fill="#FF8A3D"/><rect x="2" y="70" width="2" height="2" fill="#FFD447"/><rect x="12" y="64" width="2" height="2" fill="#FFD447"/><rect x="16" y="78" width="2" height="2" fill="#FFD447"/></g><g id="dw-err-cloud" class="dw-only dw-on-error"><path d="M32 24h10v14h-10zM26 26h6v10h-6zM42 26h6v12h-6zM22 28h4v8h-4zM48 28h6v8h-6zM20 30h2v4h-2zM54 30h4v4h-4zM54 34h2v2h-2zM28 36h4v2h-4zM48 36h4v2h-4z" fill="#FFFFFF"/><path d="M32 26h10v10h-10zM26 28h6v6h-6zM42 28h6v8h-6zM22 30h4v4h-4zM48 30h6v4h-6zM54 32h2v2h-2zM28 34h4v2h-4zM48 34h4v2h-4z" fill="#A7B0CC"/><g id="dw-cloud1"><rect x="22" y="34" width="6" height="2" fill="#5B6488"/><rect x="34" y="36" width="6" height="2" fill="#5B6488"/><rect x="48" y="34" width="4" height="2" fill="#5B6488"/></g><g id="dw-cloud2"><rect x="24" y="30" width="4" height="2" fill="#FFFFFF"/><rect x="40" y="30" width="6" height="2" fill="#FFFFFF"/><rect x="50" y="30" width="2" height="2" fill="#FFFFFF"/></g><g id="dw-cloud3"><rect x="18" y="38" width="4" height="2" fill="#5B6488"/><rect x="54" y="38" width="2" height="2" fill="#5B6488"/></g></g>
     <g id="dw-drop1" class="dw-only dw-on-error"><rect x="30" y="42" width="4" height="6" fill="#7FDBFF"/><rect x="30" y="42" width="2" height="2" fill="#BEE1FF"/></g><g id="dw-drop2" class="dw-only dw-on-error"><rect x="40" y="48" width="4" height="6" fill="#7FDBFF"/><rect x="40" y="48" width="2" height="2" fill="#BEE1FF"/></g><g id="dw-drop3" class="dw-only dw-on-error"><rect x="50" y="42" width="2" height="6" fill="#7FDBFF"/><rect x="24" y="52" width="2" height="4" fill="#7FDBFF"/></g>
-    <g id="dw-zzz" class="dw-only dw-on-sleeping"><g id="dw-z1" class="dw-only dw-on-sleeping"><rect x="58" y="8" width="10" height="2" fill="#A7B0CC"/><rect x="64" y="10" width="2" height="2" fill="#A7B0CC"/><rect x="62" y="12" width="2" height="2" fill="#A7B0CC"/><rect x="60" y="14" width="2" height="2" fill="#A7B0CC"/><rect x="58" y="16" width="10" height="2" fill="#A7B0CC"/></g><g id="dw-z2" class="dw-only dw-on-sleeping"><rect x="46" y="20" width="10" height="2" fill="#142660"/><rect x="52" y="22" width="2" height="2" fill="#142660"/><rect x="50" y="24" width="2" height="2" fill="#142660"/><rect x="48" y="26" width="2" height="2" fill="#142660"/><rect x="46" y="28" width="10" height="2" fill="#142660"/></g></g>
+    <g id="dw-zzz" class="dw-only dw-on-sleeping"><g id="dw-z1" class="dw-only dw-on-sleeping"><rect x="58" y="8" width="10" height="2" fill="#A7B0CC"/><rect x="64" y="10" width="2" height="2" fill="#A7B0CC"/><rect x="62" y="12" width="2" height="2" fill="#A7B0CC"/><rect x="60" y="14" width="2" height="2" fill="#A7B0CC"/><rect x="58" y="16" width="10" height="2" fill="#A7B0CC"/></g><g id="dw-z2" class="dw-only dw-on-sleeping"><rect x="46" y="20" width="10" height="2" fill="#7B86A8"/><rect x="52" y="22" width="2" height="2" fill="#7B86A8"/><rect x="50" y="24" width="2" height="2" fill="#7B86A8"/><rect x="48" y="26" width="2" height="2" fill="#7B86A8"/><rect x="46" y="28" width="10" height="2" fill="#7B86A8"/></g><g id="dw-z3" class="dw-only dw-on-sleeping"><rect x="62" y="34" width="8" height="2" fill="#5B6488"/><rect x="67" y="36" width="2" height="2" fill="#5B6488"/><rect x="65" y="38" width="2" height="2" fill="#5B6488"/><rect x="62" y="40" width="8" height="2" fill="#5B6488"/></g></g>
     <g id="dw-flust1" class="dw-only dw-on-poke"><rect x="16" y="52" width="2" height="2" fill="#142660"/><rect x="14" y="50" width="2" height="2" fill="#142660"/></g><g id="dw-flust2" class="dw-only dw-on-poke"><rect x="54" y="52" width="2" height="2" fill="#142660"/><rect x="56" y="50" width="2" height="2" fill="#142660"/></g><g id="dw-flust3" class="dw-only dw-on-poke"><rect x="62" y="44" width="2" height="2" fill="#FFD447"/></g>
   </g>
 </svg>`,
@@ -1198,7 +1205,8 @@ function createWhaleEngine(host, ctx) {
   let tempStage = null
   let tempUntil = 0
   let lastActiveAt = now()
-  let lastMischiefAt = now() + rand(9000, 16000)
+  let lastMischiefAt = now()
+  let nextZAt = now() + rand(9000, 16000)
   let lastMusicAt = now() + rand(28000, 65000)
   let mischiefCount = 0
   let lastWallBump = 0
@@ -1316,8 +1324,8 @@ function createWhaleEngine(host, ctx) {
 
   function spawnZ() {
     if (disposed || reduced) return
-    for (let i = 0; i < 2; i++) {
-      spawnParticle('z', { dx: rand(8, 26), dy: rand(-38, -20), scale: rand(0.7, 1.1), delay: i * 260, life: 2100 })
+    for (let i = 0; i < 4; i++) {
+      spawnParticle(i % 2 ? 'z2' : 'z', { delay: i * 320, life: 2300 })
     }
   }
 
@@ -1865,6 +1873,11 @@ function createWhaleEngine(host, ctx) {
         spawnBurst('spark', 3)
         spawnParticle('ripple', { x: PET_SIZE * 0.5, y: PET_SIZE * 0.78, life: 1100 })
       }
+    }
+    // A sleepy whale keeps puffing a stream of grey Zs.
+    if (currentStage === 'sleeping' && now() > nextZAt) {
+      nextZAt = now() + rand(900, 1500)
+      spawnZ()
     }
     // Done/error/splash/poke are temporary; fall back to the derived stage.
     if (tempStage && now() >= tempUntil) {
