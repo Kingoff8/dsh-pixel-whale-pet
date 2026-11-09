@@ -110,25 +110,30 @@ const ART = {
 .dsh-whale.is-thinking #dw-mouth-smile { display: none; }
 /* quiet talking: small smile that briefly opens (never wide) */
 /* quiet talking: open/close, open/close, then hold the smile for a beat */
-.dsh-whale.is-thinking #dw-mouth-think-closed { display: inline; animation: dw-think-smile 3.6s steps(1, end) infinite; }
-.dsh-whale.is-thinking #dw-mouth-think-open { display: inline; animation: dw-think-open 3.6s steps(1, end) infinite; }
-.dsh-whale.is-thinking #dw-mouth-think-line { display: inline; animation: dw-think-line 3.6s steps(1, end) infinite; }
+.dsh-whale.is-thinking #dw-mouth-think-closed { display: inline; animation: dw-think-smile 4.8s steps(1, end) infinite; }
+.dsh-whale.is-thinking #dw-mouth-think-open { display: inline; animation: dw-think-open 4.8s steps(1, end) infinite; }
+.dsh-whale.is-thinking #dw-mouth-think-line { display: inline; animation: dw-think-line 4.8s steps(1, end) infinite; }
+/* three open/close beats, then a longer smile */
 @keyframes dw-think-smile {
-  0%, 39% { opacity: 0; }
-  40%, 100% { opacity: 1; }
+  0%, 47% { opacity: 0; }
+  48%, 100% { opacity: 1; }
 }
 @keyframes dw-think-open {
-  0%, 9% { opacity: 1; }
-  10%, 19% { opacity: 0; }
-  20%, 29% { opacity: 1; }
-  30%, 100% { opacity: 0; }
+  0%, 7% { opacity: 1; }
+  8%, 15% { opacity: 0; }
+  16%, 23% { opacity: 1; }
+  24%, 31% { opacity: 0; }
+  32%, 39% { opacity: 1; }
+  40%, 100% { opacity: 0; }
 }
 @keyframes dw-think-line {
-  0%, 9% { opacity: 0; }
-  10%, 19% { opacity: 1; }
-  20%, 29% { opacity: 0; }
-  30%, 39% { opacity: 1; }
-  40%, 100% { opacity: 0; }
+  0%, 7% { opacity: 0; }
+  8%, 15% { opacity: 1; }
+  16%, 23% { opacity: 0; }
+  24%, 31% { opacity: 1; }
+  32%, 39% { opacity: 0; }
+  40%, 47% { opacity: 1; }
+  48%, 100% { opacity: 0; }
 }
 .dsh-whale.is-thinking #dw-cloud { animation: dw-cloud-float 3.2s ease-in-out infinite; }
 .dsh-whale.is-thinking #dw-formula1 { animation: dw-formula 2.8s ease-in-out 0.00s infinite; }
