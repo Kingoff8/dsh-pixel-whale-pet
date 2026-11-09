@@ -75,6 +75,8 @@ const ART = {
 /* --- 3. idle (ref: idle): very slow float, slow tail, rare blink --------- */
 .dsh-whale.is-idle #dw-bob { animation: dw-bob 5.6s ease-in-out infinite; }
 .dsh-whale.is-idle #dw-tail-blades { animation: dw-tail 3.8s ease-in-out infinite; }
+/* idle keeps the neutral reference face: eyes + blink, no mouth */
+.dsh-whale.is-idle #dw-mouth-smile { display: none; }
 .dsh-whale.is-idle #dw-face { animation: dw-blink-open 6s steps(1, end) infinite; }
 .dsh-whale.is-idle #dw-face-blink { animation: dw-blink-shut 6s steps(1, end) infinite; }
 @keyframes dw-bob {
