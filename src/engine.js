@@ -590,7 +590,7 @@ function createWhaleEngine(host, ctx) {
     if (next === currentStage) return
     const previous = currentStage
     currentStage = next
-    whaleEl.className = 'dsh-whale is-' + next + (isFast ? ' is-fast' : '')
+    whaleEl.className = 'dsh-whale is-' + next + (isFast ? ' is-fast' : '') + (now() < wakeGlowUntil ? ' is-wake' : '')
     if (next === 'thinking' || next === 'writing' || next === 'tool' ||
         next === 'waiting' || next === 'done' || next === 'error' ||
         next === 'drag' || next === 'poke') lastActiveAt = now()
@@ -1233,12 +1233,15 @@ function createWhaleEngine(host, ctx) {
   let dragMoved = false
   let dragStartX = 0
   let dragStartY = 0
+  let wasSleeping = false
+  let wakeGlowUntil = 0
 
   function onPointerDown(event) {
     if (disposed) return
     event.stopPropagation()
     pet.dragging = true
     dragMoved = false
+    wasSleeping = currentStage === 'sleeping'
     dragStartX = event.clientX
     dragStartY = event.clientY
     pet.dragOffX = event.clientX - pet.x
@@ -1270,11 +1273,23 @@ function createWhaleEngine(host, ctx) {
     pet.dragging = false
     if (hitEl) hitEl.style.cursor = ''
     if (!dragMoved) {
-      triggerTemp('poke', 950)
-      spawnBurst('bubble', 5)
+      // Waking up from sleep is a happy moment: hearts and a warm glow.
+      if (wasSleeping) {
+        wakeGlowUntil = now() + 1900
+        triggerTemp('poke', 1900)
+        spawnBurst('heart', 8)
+        spawnBurst('spark', 4)
+        spawnBurst('bubble', 3)
+        spawnBurst('note', 2)
+      } else {
+        triggerTemp('poke', 950)
+        spawnBurst('bubble', 5)
+      }
+    } else {
+      // A real drag ends here; the poke temp stage must survive the click case.
+      tempStage = null
+      setStage(baseStage())
     }
-    tempStage = null
-    setStage(baseStage())
   }
 
   function onPointerEnter(event) {
