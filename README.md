@@ -12,7 +12,7 @@
 |---|---|---|
 | ![Печатает на ноутбуке](docs/preview-writing.png) | ![Фонтан](docs/preview-fountain.png) | ![Салют](docs/preview-firework.png) |
 | `drag` — ругается при перетаскивании | `thinking` — думает с облаком | `music` — «чиллит» в наушниках |
-| ![Drag](docs/preview-drag.png) | ![Thinking](docs/thinking-talk-check.png) | ![Music](docs/preview-music.png) |
+| ![Drag](docs/preview-drag.png) | ![Thinking](docs/thinking-mouth-check.png) | ![Music](docs/preview-music.png) |
 
 ## English (summary)
 
