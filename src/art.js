@@ -99,17 +99,26 @@ const ART = {
 .dsh-whale.is-thinking #dw-face-up-blink { animation: dw-blink-shut 4s steps(1, end) infinite; }
 .dsh-whale.is-thinking #dw-mouth-smile { display: none; }
 /* quiet talking: small smile that briefly opens (never wide) */
-.dsh-whale.is-thinking #dw-mouth-think-closed { display: inline; animation: dw-think-talk-closed 1.4s steps(1, end) infinite; }
-.dsh-whale.is-thinking #dw-mouth-think-open { display: inline; animation: dw-think-talk-open 1.4s steps(1, end) infinite; }
-@keyframes dw-think-talk-closed {
-  0%, 48% { opacity: 1; }
-  53%, 78% { opacity: 0; }
-  83%, 100% { opacity: 1; }
+/* quiet talking: open/close, open/close, then hold the smile for a beat */
+.dsh-whale.is-thinking #dw-mouth-think-closed { display: inline; animation: dw-think-smile 3.6s steps(1, end) infinite; }
+.dsh-whale.is-thinking #dw-mouth-think-open { display: inline; animation: dw-think-open 3.6s steps(1, end) infinite; }
+.dsh-whale.is-thinking #dw-mouth-think-line { display: inline; animation: dw-think-line 3.6s steps(1, end) infinite; }
+@keyframes dw-think-smile {
+  0%, 39% { opacity: 0; }
+  40%, 100% { opacity: 1; }
 }
-@keyframes dw-think-talk-open {
-  0%, 48% { opacity: 0; }
-  53%, 78% { opacity: 1; }
-  83%, 100% { opacity: 0; }
+@keyframes dw-think-open {
+  0%, 9% { opacity: 1; }
+  10%, 19% { opacity: 0; }
+  20%, 29% { opacity: 1; }
+  30%, 100% { opacity: 0; }
+}
+@keyframes dw-think-line {
+  0%, 9% { opacity: 0; }
+  10%, 19% { opacity: 1; }
+  20%, 29% { opacity: 0; }
+  30%, 39% { opacity: 1; }
+  40%, 100% { opacity: 0; }
 }
 .dsh-whale.is-thinking #dw-cloud { animation: dw-cloud-float 3.2s ease-in-out infinite; }
 .dsh-whale.is-thinking #dw-formula1 { animation: dw-formula 2.8s ease-in-out 0.00s infinite; }
@@ -567,6 +576,7 @@ const ART = {
   .dsh-whale .dsh-whale-art #dw-spout-big { opacity: 0 !important; }
   .dsh-whale .dsh-whale-art #dw-glow { opacity: 0 !important; }
   .dsh-whale .dsh-whale-art #dw-face-up-blink, .dsh-whale .dsh-whale-art #dw-mouth-think-open { opacity: 0 !important; }
+  .dsh-whale .dsh-whale-art #dw-mouth-think-line { opacity: 0 !important; }
 }`,
   svg: ` <svg class="dsh-whale-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96" shape-rendering="auto" aria-hidden="true" focusable="false">
   <g id="dw-bob">
@@ -584,7 +594,7 @@ const ART = {
     <g id="dw-face-drowsy" class="dw-alt dw-on-drowsy"><rect x="22" y="68" width="6" height="2" fill="#142660"/><rect x="36" y="68" width="6" height="2" fill="#142660"/><rect x="24" y="70" width="2" height="2" fill="#142660"/><rect x="38" y="70" width="2" height="2" fill="#142660"/></g>
     <g id="dw-face-drag" class="dw-alt dw-on-drag"><rect x="22" y="64" width="4" height="2" fill="#142660"/><rect x="38" y="64" width="4" height="2" fill="#142660"/><rect x="22" y="66" width="6" height="6" fill="#FFFFFF"/><rect x="24" y="68" width="2" height="2" fill="#142660"/><rect x="36" y="66" width="6" height="6" fill="#FFFFFF"/><rect x="38" y="68" width="2" height="2" fill="#142660"/><rect x="46" y="68" width="2" height="4" fill="#7FDBFF"/><rect x="46" y="68" width="2" height="2" fill="#142660"/></g>
     <g id="dw-blush" class="dw-alt dw-on-done dw-on-music dw-on-splash dw-on-poke dw-on-hop dw-on-drag"><rect x="20" y="74" width="4" height="2" fill="#FF8FB8"/><rect x="40" y="74" width="4" height="2" fill="#FF8FB8"/></g>
-    <g id="dw-mouth-smile"><rect x="30" y="76" width="4" height="2" fill="#142660"/></g><g id="dw-mouth-drag-closed" class="dw-alt dw-on-drag"><rect x="28" y="76" width="10" height="2" fill="#142660"/></g><g id="dw-mouth-drag-open" class="dw-alt dw-on-drag"><rect x="26" y="72" width="14" height="10" fill="#142660"/><rect x="28" y="74" width="10" height="6" fill="#222A4E"/><rect x="28" y="74" width="10" height="2" fill="#FFFFFF"/><rect x="30" y="78" width="6" height="2" fill="#FF4D5E"/></g><g id="dw-mouth-think-closed" class="dw-alt dw-on-thinking"><rect x="26" y="74" width="2" height="2" fill="#142660"/><rect x="28" y="76" width="2" height="2" fill="#142660"/><rect x="30" y="78" width="2" height="2" fill="#142660"/><rect x="32" y="78" width="2" height="2" fill="#142660"/><rect x="34" y="78" width="2" height="2" fill="#142660"/><rect x="36" y="76" width="2" height="2" fill="#142660"/><rect x="38" y="74" width="2" height="2" fill="#142660"/></g><g id="dw-mouth-think-open" class="dw-alt dw-on-thinking"><rect x="30" y="74" width="6" height="4" fill="#142660"/><rect x="32" y="76" width="2" height="2" fill="#FF8FB8"/></g>
+    <g id="dw-mouth-smile"><rect x="30" y="76" width="4" height="2" fill="#142660"/></g><g id="dw-mouth-drag-closed" class="dw-alt dw-on-drag"><rect x="28" y="76" width="10" height="2" fill="#142660"/></g><g id="dw-mouth-drag-open" class="dw-alt dw-on-drag"><rect x="26" y="72" width="14" height="10" fill="#142660"/><rect x="28" y="74" width="10" height="6" fill="#222A4E"/><rect x="28" y="74" width="10" height="2" fill="#FFFFFF"/><rect x="30" y="78" width="6" height="2" fill="#FF4D5E"/></g><g id="dw-mouth-think-closed" class="dw-alt dw-on-thinking"><rect x="26" y="74" width="2" height="2" fill="#142660"/><rect x="28" y="76" width="2" height="2" fill="#142660"/><rect x="30" y="78" width="2" height="2" fill="#142660"/><rect x="32" y="78" width="2" height="2" fill="#142660"/><rect x="34" y="78" width="2" height="2" fill="#142660"/><rect x="36" y="76" width="2" height="2" fill="#142660"/><rect x="38" y="74" width="2" height="2" fill="#142660"/></g><g id="dw-mouth-think-line" class="dw-alt dw-on-thinking"><rect x="30" y="76" width="6" height="2" fill="#142660"/></g><g id="dw-mouth-think-open" class="dw-alt dw-on-thinking"><rect x="30" y="74" width="6" height="4" fill="#142660"/><rect x="32" y="76" width="2" height="2" fill="#FF8FB8"/></g>
     <g id="dw-mouth-happy" class="dw-alt dw-on-done dw-on-music dw-on-splash dw-on-hop"><rect x="30" y="76" width="2" height="2" fill="#142660"/><rect x="32" y="78" width="2" height="2" fill="#142660"/><rect x="34" y="76" width="2" height="2" fill="#142660"/></g>
     <g id="dw-mouth-frown" class="dw-alt dw-on-error"><rect x="28" y="78" width="2" height="2" fill="#142660"/><rect x="30" y="76" width="4" height="2" fill="#142660"/><rect x="34" y="78" width="2" height="2" fill="#142660"/></g>
     <g id="dw-mouth-o" class="dw-alt dw-on-poke"><rect x="30" y="76" width="4" height="4" fill="#142660"/></g>
