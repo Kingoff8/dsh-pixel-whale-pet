@@ -17,7 +17,8 @@
     "cordis.patch.yml",
     "locale/*.json",
     "icon.svg",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "dsh": {
     "bundle": {
@@ -30,5 +31,23 @@
         "@deepseek-ai/dsh-client-ui-conversation"
       ]
     }
-  }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kingoff8/dsh-pixel-whale-pet.git"
+  },
+  "homepage": "https://github.com/Kingoff8/dsh-pixel-whale-pet#readme",
+  "bugs": {
+    "url": "https://github.com/Kingoff8/dsh-pixel-whale-pet/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "pet",
+    "pixel-art",
+    "whale",
+    "overlay"
+  ]
 }
