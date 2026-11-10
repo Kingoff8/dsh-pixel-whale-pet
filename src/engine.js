@@ -1164,11 +1164,11 @@ function createWhaleEngine(host, ctx) {
     // Tool: bubbles from the working spot.
     // Fast swim: a short bubble trail from the tail.
     if (isFast && now() > glowTimer) {
-      glowTimer = now() + 260
+      glowTimer = now() + 170
       spawnParticle('bubble', {
-        x: pet.facing > 0 ? PET_SIZE * 0.78 : PET_SIZE * 0.22,
-        y: PET_SIZE * 0.55,
-        life: 700,
+        x: pet.facing > 0 ? PET_SIZE * 0.8 : PET_SIZE * 0.2,
+        y: PET_SIZE * 0.52 + rand(-6, 8),
+        life: 760,
       })
     }
     // Tool: sparks fly where the hammer meets the wall panel.
