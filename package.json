@@ -1,6 +1,6 @@
 {
   "name": "dsh-pixel-whale-pet",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "description": "A pixel whale calf that swims through empty space in the chat, dodges text and the cursor, reacts to every working stage and task, spouts water, wears headphones and launches a firework when the turn completes.",

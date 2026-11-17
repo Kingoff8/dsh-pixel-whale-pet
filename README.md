@@ -49,7 +49,19 @@ DeepSeek Harness 网页 UI 的像素小鲸鱼宠物：在聊天区空白处游�
 
 ## Установка
 
-Плагин — bundle для профиля `web` в DeepSeek Harness. Склонируйте репозиторий и подключите каталог как bundle в профиль (например, через плагин-менеджер DSH или `link:`-зависимость в `~/.dsh/profiles/web/package.json`), затем включите строку плагина в профиле.
+Одной строкой (готовый tarball с GitHub Release):
+
+```bash
+dsh plugin --profile web add https://github.com/Kingoff8/dsh-pixel-whale-pet/releases/latest/download/dsh-pixel-whale-pet.tgz
+```
+
+Или прямо из исходников GitHub:
+
+```bash
+dsh plugin --profile web add github:Kingoff8/dsh-pixel-whale-pet
+```
+
+Плагин — bundle для профиля `web` в DeepSeek Harness: он встаёт как зависимость профиля и включается строкой в `dsh.profile.bundles`. Также его можно подключить каталогом (`link:` в `~/.dsh/profiles/web/package.json`) — например, для разработки.
 
 `client.js` уже собран и лежит в репозитории. Пересборка после правок арта/движка:
 
